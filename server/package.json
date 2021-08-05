@@ -2,8 +2,19 @@
   "name": "droptext",
   "version": "1.0.0",
   "description": "Web app to send encrypted text fast",
-  "main": "index.js",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
   "repository": "https://github.com/orellazri/droptext",
   "author": "Orel Lazri",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1"
+  }
 }

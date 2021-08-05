@@ -1,3 +1,3 @@
 # droptext
 
-Web app to send encrypted text fast.
+Web app to send encrypted text fast
