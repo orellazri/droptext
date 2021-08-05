@@ -1,0 +1,9 @@
+{
+  "name": "droptext",
+  "version": "1.0.0",
+  "description": "Web app to send encrypted text fast",
+  "main": "index.js",
+  "repository": "https://github.com/orellazri/droptext",
+  "author": "Orel Lazri",
+  "license": "MIT"
+}
