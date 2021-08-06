@@ -1,8 +1,10 @@
 const express = require("express");
+const cors = require("cors");
 require("dotenv").config();
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 app.get("/", (req, res) => {
   res.json({ message: "welcome to droptext" });
@@ -11,18 +13,16 @@ app.get("/", (req, res) => {
 app.post("/create", (req, res, next) => {
   try {
     const { content } = req.body;
-    if (!content.trim()) {
-      throw new Error("Content missing");
-    } else {
-      res.json({ message: "OK!" });
-    }
+    if (!content) throw new Error("Content missing");
+    if (!content.trim()) throw new Error("Content missing");
+
+    res.json({ message: "OK!" });
   } catch (err) {
     next(err);
   }
 });
 
 app.use((err, req, res, next) => {
-  console.log("Error :" + err);
   res.status(400).json({
     message: err.message,
   });

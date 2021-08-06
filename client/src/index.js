@@ -1,7 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
+import axios from "axios";
 import App from "./App";
+import "bootstrap/dist/css/bootstrap.min.css";
+
+axios.defaults.baseURL = "http://localhost:5000";
+axios.defaults.headers.post["Content-Type"] = "application/json";
 
 ReactDOM.render(
   <React.StrictMode>

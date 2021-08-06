@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
+import axios from "axios";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+
 import * as crypto from "../utils/crypto";
 
 const textareaStyle = {
@@ -18,8 +20,19 @@ const Textbox = () => {
     contentRef.current.select();
   }, []);
 
-  const create = () => {
+  const create = async () => {
     if (!content.trim()) return;
+
+    let { encrypted, privateKey } = crypto.encrypt(content);
+
+    try {
+      let result = await axios.post("/create", {
+        content: encrypted,
+      });
+      console.log("Your privte key is: " + privateKey);
+    } catch (e) {
+      console.log("An error occured trying to send encrypted text to server");
+    }
   };
 
   return (

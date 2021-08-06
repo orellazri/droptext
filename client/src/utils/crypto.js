@@ -5,11 +5,11 @@ export function generate(length) {
   return lib.WordArray.random(length).toString(enc.Base64).replace("/", "_").replace("+", "-");
 }
 
-export function encrypt(content, length = 15) {
-  const privateKey = generate(length);
+export function encrypt(content, privateKeyLength = 15) {
+  const privateKey = generate(privateKeyLength);
 
   return {
-    ecnrypted: aes.encrypt(content, privateKey).toString(),
+    encrypted: aes.encrypt(content, privateKey).toString(),
     privateKey,
   };
 }
