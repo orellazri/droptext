@@ -1,24 +1,35 @@
 import { useState, useRef, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 import * as crypto from "../utils/crypto";
 
 const textareaStyle = {
-  height: "90vh",
+  height: "95%",
   border: "2px solid #cecece",
   outline: 0,
   fontFamily: "monospace",
 };
 
-const Textbox = () => {
+const Textbox = (props) => {
   const [content, setContent] = useState("Enter text here...");
   const contentRef = useRef(null);
+  const history = useHistory();
 
   useEffect(() => {
     contentRef.current.select();
   }, []);
+
+  const keydownHandler = (e) => {
+    // CTRL + Enter to create
+    if (e.keyCode === 13 && e.ctrlKey) {
+      create();
+    }
+  };
 
   const create = async () => {
     if (!content.trim()) return;
@@ -30,29 +41,28 @@ const Textbox = () => {
         content: encrypted,
       });
       const { id } = result.data;
-      console.log(id);
-      console.log(privateKey);
+
+      history.push("/" + id + "$" + privateKey);
     } catch (e) {
       console.log("An error occured trying to send encrypted text to server");
+      console.log(e);
     }
   };
 
   return (
     <>
-      <Form>
-        <Form.Group>
-          <Form.Control
-            ref={contentRef}
-            as="textarea"
-            style={textareaStyle}
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-          />
-        </Form.Group>
-      </Form>
+      <Form.Control
+        ref={contentRef}
+        as="textarea"
+        style={textareaStyle}
+        value={content}
+        onChange={(e) => setContent(e.target.value)}
+        onKeyDown={keydownHandler}
+      />
 
-      {/* TODO: change to create on typing text */}
-      <Button onClick={create}>Create</Button>
+      <div className="d-grid gap-2" style={{ marginTop: "1rem" }}>
+        <Button onClick={create}>Create (CTRL + Enter)</Button>
+      </div>
     </>
   );
 };

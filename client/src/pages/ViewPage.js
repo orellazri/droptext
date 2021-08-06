@@ -25,7 +25,6 @@ const ViewPage = () => {
 
         setDecrypted(decryptedContent);
       } catch (e) {
-        console.log(e);
         setDecrypted("Could not decrypt content. Perhaps your URL is wrong.");
       } finally {
         setLoading(false);
@@ -35,7 +34,11 @@ const ViewPage = () => {
     fetchData();
   }, []);
 
-  const content = loading ? <>Loading...</> : <>{decrypted}</>;
+  const content = loading ? (
+    <>Loading...</>
+  ) : (
+    <div style={{ whiteSpace: "pre-wrap" }}>{decrypted}</div>
+  );
 
   return <>{content}</>;
 };

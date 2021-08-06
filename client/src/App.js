@@ -26,7 +26,7 @@ const App = () => {
 
   return (
     <Router>
-      <Container fluid style={{ marginTop: "2rem" }}>
+      <Container fluid style={{ padding: "1rem", height: "95vh" }}>
         <Switch>
           <Route path="/:idAndKey" children={<ViewPage />} />
           <Route path="/">{content}</Route>
