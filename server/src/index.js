@@ -15,6 +15,18 @@ app.get("/", (req, res) => {
   res.json({ message: "welcome to droptext" });
 });
 
+app.get("/:id", async (req, res, next) => {
+  const id = req.params.id;
+
+  try {
+    const get = await db.get(id);
+
+    res.json({ content: get.toString() });
+  } catch (e) {
+    next(e);
+  }
+});
+
 app.post("/create", async (req, res, next) => {
   try {
     const { content } = req.body;

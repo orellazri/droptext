@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 
 import Textbox from "./components/Textbox";
+import ViewPage from "./pages/ViewPage";
 
 const App = () => {
   const [support, setSupport] = useState(true);
@@ -23,9 +25,14 @@ const App = () => {
   );
 
   return (
-    <Container fluid style={{ marginTop: "2rem" }}>
-      {content}
-    </Container>
+    <Router>
+      <Container fluid style={{ marginTop: "2rem" }}>
+        <Switch>
+          <Route path="/:idAndKey" children={<ViewPage />} />
+          <Route path="/">{content}</Route>
+        </Switch>
+      </Container>
+    </Router>
   );
 };
 
