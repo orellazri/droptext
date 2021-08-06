@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 
 import Textbox from "./components/Textbox";

@@ -30,6 +30,8 @@ const Textbox = () => {
         content: encrypted,
       });
       const { id } = result.data;
+      console.log(id);
+      console.log(privateKey);
     } catch (e) {
       console.log("An error occured trying to send encrypted text to server");
     }
