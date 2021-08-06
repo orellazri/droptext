@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -29,7 +29,7 @@ const Textbox = () => {
       let result = await axios.post("/create", {
         content: encrypted,
       });
-      console.log("Your privte key is: " + privateKey);
+      const { id } = result.data;
     } catch (e) {
       console.log("An error occured trying to send encrypted text to server");
     }
