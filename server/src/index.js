@@ -5,13 +5,13 @@ const app = express();
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.send("welcome to droptext");
+  res.json({ message: "welcome to droptext" });
 });
 
 app.post("/create", (req, res, next) => {
   try {
     const { content } = req.body;
-    if (!content) {
+    if (!content.trim()) {
       throw new Error("Content missing");
     } else {
       res.json({ message: "OK!" });
