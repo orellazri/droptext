@@ -9,3 +9,9 @@ After submitting your text, it gets encrypted locally, and a private key is also
 The server only knows the IDs and the encrypted contents. It cannot decrypt the text.
 
 Demo: https://droptext.netlify.app/
+
+## Usage
+
+In the server directory, copy .env.example to .env and change the parameters accordingly.
+
+To run the server/client execute `yarn start` (or npm) in the respective directory.
