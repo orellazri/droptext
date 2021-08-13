@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 
 import Textbox from "./components/Textbox";
+import HowItWorks from "./components/HowItWorks";
 import ViewPage from "./pages/ViewPage";
 
 const App = () => {
@@ -27,6 +28,7 @@ const App = () => {
   return (
     <Router>
       <Container fluid style={{ padding: "1rem", height: "95vh" }}>
+        <HowItWorks />
         <Switch>
           <Route path="/:idAndKey" children={<ViewPage />} />
           <Route path="/">{content}</Route>
