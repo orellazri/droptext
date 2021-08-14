@@ -12,6 +12,6 @@ Demo: https://droptext.netlify.app/
 
 ## Usage
 
-In the both the server and client directories, copy .env.example to .env and change the parameters accordingly.
+In both the server and client directories, copy .env.example to .env and change the parameters accordingly.
 
 To run the server/client execute `yarn start` (or npm) in the respective directory.
