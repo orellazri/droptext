@@ -31,7 +31,7 @@ const HowItWorks = () => {
           <br />
           <br />
           After submitting your text, it gets encrypted locally, and a private key is also generated
-          localy. The encrypted contents are sent to the server. The server sends back an ID, which
+          locally. The encrypted contents are sent to the server. The server sends back an ID, which
           lets you share your url that consists of the ID and the private key.
           <br />
           The server only knows the IDs and the encrypted contents. It cannot decrypt the text.
