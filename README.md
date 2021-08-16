@@ -17,5 +17,5 @@ In both the server and client directories, copy .env.example to .env and change 
 To run the server/client execute `yarn start` (or npm) in the respective directory.
 
 
-## Different servers
+## Different Servers
 There are branches for a Rust server with Actix and Go with Gin.
