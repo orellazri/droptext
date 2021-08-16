@@ -2,7 +2,7 @@
 
 Web app to send encrypted text fast.
 
-Uses Go & Gin for the server, MongoDB for the database and React for the client.
+Uses Go & Gin for the server, MongoDB for the database and React for the client. (**This version that uses Go is still in progress**).
 
 After submitting your text, it gets encrypted locally, and a private key is also generated locally. The encrypted contents are sent to the server. The server sends back an ID, which lets you can share your url that consists of the ID and the private key.
 
