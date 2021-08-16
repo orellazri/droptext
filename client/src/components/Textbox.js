@@ -31,6 +31,7 @@ const Textbox = (props) => {
 
   const create = async () => {
     if (!content.trim()) return;
+    if (content.trim() == "Enter text here...") return;
 
     let { encrypted, privateKey } = crypto.encrypt(content);
 
