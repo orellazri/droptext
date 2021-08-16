@@ -1,5 +1,6 @@
 #[macro_use]
 extern crate actix_web;
+use actix_cors::Cors;
 use actix_web::{web, App, HttpResponse, HttpServer, Responder};
 use dotenv::dotenv;
 use mongodb::bson::{doc, Bson};
@@ -89,6 +90,7 @@ async fn create_drop(req_body: String, state: web::Data<AppState>) -> impl Respo
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
+    // MongoDB
     dotenv().ok();
     let mongo_url = env::var("MONGO_URL").expect("MONGO_URL environment variable not set!");
     let options = ClientOptions::parse(&mongo_url)
@@ -96,11 +98,13 @@ async fn main() -> std::io::Result<()> {
         .expect("Could not create mongodb client options");
     let client = Client::with_options(options).expect("Could not connect to mongodb");
 
+    // Initialize app
     HttpServer::new(move || {
         App::new()
             .data(AppState {
                 collection: client.database("droptext").collection("drops"),
             })
+            .wrap(Cors::permissive()) // TODO: Change this for production
             .service(index)
             .service(get_by_id)
             .service(create_drop)
