@@ -21,4 +21,3 @@ Navigate to the `server` directory and run `cargo run` or `cargo run --release`
 ### Client
 
 Navigate to the `client` directory and run `yarn install` and `yarn start` (or npm if you prefer).
-In both the server and client directories, copy .env.example to .env and change the parameters accordingly.
