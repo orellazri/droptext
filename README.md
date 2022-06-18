@@ -10,7 +10,7 @@ The server only knows the IDs and the encrypted contents. It cannot decrypt the 
 
 Demo: https://droptext.netlify.app/
 
-(The first request might take a few seconds since the server is on Heroku right now and spins down when idle)
+**NOTE:** The first request might take a few seconds since the server is on Heroku right now and spins down when idle.
 
 ## Usage
 
