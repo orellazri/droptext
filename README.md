@@ -8,10 +8,6 @@ After submitting your text, it gets encrypted locally, and a private key is also
 
 The server only knows the IDs and the encrypted contents. It cannot decrypt the text.
 
-Demo: https://droptext.netlify.app/
-
-**NOTE:** The first request might take a few seconds since the server is on Heroku right now and spins down when idle.
-
 ## Usage
 
 In both the server and client directories, copy .env.example to .env and change the parameters accordingly.
